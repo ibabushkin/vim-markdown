@@ -6,11 +6,14 @@ if !has('python')
 	finish
 endif
 
+" our path we need
+let s:path = expand('<sfile>:p:h')
+
 " insert a timestamp with Day, Month and Year
 function! InsertTimestamp(desc, mode)
         python import sys
         python sys.argv = [] 
-	pyfile ~/.vim/ftplugin/markdown/insert_timestamp.py
+	execute ':pyfile ' . s:path . '/insert_timestamp.py'
 endfunc
 
 " bind to a command
