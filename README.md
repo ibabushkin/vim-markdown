@@ -1,7 +1,18 @@
 # Markdown for Vim (on steroids)
 A complete environment to create Markdown files with a syntax highlighting that doesn't suck!
 This is a fork of @gabrielelana's [vim-markdown](https://github.com/gabrielelana/vim-markdown) 
-that adds a few features that are useful for notetaking.
+that adds a few features that are useful for notetaking. It is intended to be used in conjunction
+with [morgue](https://github.com/ibabushkin/morgue) and is like a drop-in replacement for the
+original, i.e, no functionality is lost, just some additions were made.
+
+## Features
+
+* Insert morgue-style timestamps via simple commands
+  * `:InsertTimestamp 3mon T` inserts an appointment ( **T**ime mode) on the 3rd monday from now on.
+  * `:InsertTimestamp thu D` sets a **D**eadline on next thursday.
+  * `:InsertTimestamp 2fri S` sets a **S**chedule on the second friday.
+  * `:InsertTimestampExact 2fri 15:00 D` takes an additional time. 
+* automatic syntax highlighting for valid timestamps (see morgue's readme for the complete format specs).
 
 # Original README
 
