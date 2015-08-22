@@ -23,7 +23,7 @@ command! -nargs=+ InsertTimestamp call InsertTimestamp(<f-args>)
 function! InsertExactTimestamp(desc, time, mode)
         python import sys
         python sys.argv = ["exact"] 
-        pyfile insert_timestamp.py
+	execute ':pyfile ' . s:path . '/insert_timestamp.py'
 endfunc
 
 " bind to a command
