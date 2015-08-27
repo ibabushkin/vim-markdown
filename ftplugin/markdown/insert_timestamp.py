@@ -37,25 +37,21 @@ def insert(index):
         ts = get_timestamp(vim.eval("a:desc"))
     else:
         ts = get_timestamp(vim.eval("a:desc"), vim.eval("a:time"))
-    vim.current.line = l[:index+3] + " " + \
-        prefix + ts + l[index+3:]
+    vim.current.line = l[:index] + " " + \
+        prefix + ts + l[index:]
 
 if __name__ == '__main__':
     l = vim.current.line
-    # empty checkbox
-    index = l.find("[ ]")
+    index = l.find("[ ]") + 3
     if index == -1:
-        # full checkbox
-        index = l.find("[x]")
+        index = l.find("[x]") + 3
     if index == -1:
-        # no checkbox in unordered list element
-        index = l.find("*") - 2  # account for lesser length of "*"
+        index = l.find("*")
     if index == -1:
-        index = l.find("+") - 2
+        index = l.find("+")
     if index == -1:
-        index = l.find("-") - 2
+        index = l.find("-")
     if index == -1:
-        # no checkbox in ordered list element
-        index = l.find(".") - 2  # same
+        index = l.find(".")
     if index >= 0:
         insert(index)
