@@ -3,7 +3,7 @@ import sys
 
 import vim
 
-days = ["mon", "tue", "wen", "thu", "fri", "sat", "sun"]
+days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 
 
 def get_timestamp(inp, time=''):
@@ -33,7 +33,6 @@ def insert(index):
     prefix = vim.eval("a:mode")
     if prefix not in ["T", "S", "D"]:
         prefix = "T"
-    print sys.argv
     if sys.argv != ["exact"]:
         ts = get_timestamp(vim.eval("a:desc"))
     else:
