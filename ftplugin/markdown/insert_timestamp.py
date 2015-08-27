@@ -12,10 +12,10 @@ def get_timestamp(inp, time=''):
     which is the 3rd. wedesday from now on. Omitting
     a count means it is the next one.
     """
-    repeat = 1
+    repeat = 0
     day = inp
     if inp[0] in "123456789":
-        repeat = int(inp[0])
+        repeat = int(inp[0]) - 1
         day = inp[1:].lower()
     if day not in days:
         return
