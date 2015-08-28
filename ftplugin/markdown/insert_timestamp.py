@@ -42,10 +42,12 @@ def insert(index):
 
 if __name__ == '__main__':
     l = vim.current.line
-    index = l.find("[ ]") + 3
+    padd = 3
+    index = l.find("[ ]")
     if index == -1:
-        index = l.find("[x]") + 3
+        index = l.find("[x]")
     if index == -1:
+        padd = 1
         index = l.find("*")
     if index == -1:
         index = l.find("+")
@@ -54,4 +56,4 @@ if __name__ == '__main__':
     if index == -1:
         index = l.find(".")
     if index >= 0:
-        insert(index)
+        insert(index + padd)
