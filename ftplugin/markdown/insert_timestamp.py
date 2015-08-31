@@ -12,6 +12,7 @@ def get_timestamp(inp, time=''):
     which is the 3rd. wedesday from now on. Omitting
     a count means it is the next one.
     """
+    # initial values and args
     repeat = 1
     day = inp
     if inp[0] in "123456789":
@@ -20,13 +21,29 @@ def get_timestamp(inp, time=''):
     if day not in days:
         print "Invalid day given! Possible values: 'mon', 'tue', 'wed'..."
         return
+
     today = datetime.date.today()
-    current_day = today.weekday()
+    # today's weekday
+    current_weekday = today.weekday()
+    # weekday of target
+    target_weekday = days.index(day)
+
+    # find the next day that matches the name given
+    if current_weekday < target_weekday:
+        delta1 = target_weekday - current_weekday
+    else:
+        delta1 = 7 - (current_weekday - target_weekday)
+
+    # get the date
     target = today + datetime.timedelta(
-        days=(repeat-1)*7 + days.index(day) + (7 - current_day))
+        days=(repeat-1)*7 + delta1)
     ts = target.strftime("[%d.%m.%Y]")
+
+    # handle optional time
     if time:
         ts = ts[:-1] + ":" + time + "]"
+
+    # return our results
     return ts
 
 
