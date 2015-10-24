@@ -122,6 +122,7 @@ syn match markdownEmailLinkInText /[[:alnum:]._%+-]\+@[[:alnum:].-]\+\.\w\{2,4}/
 
 " match timestamps with valid dates
 syntax match markdownTimestamp '[DTS]\[\(0[1-9]\|[12][0-9]\|3[01]\)\.\(0[1-9]\|1[0-2]\)\.\d\d\d\d\(:\([0-1][0-9]\|2[0-3]\):[0-5][0-9]\)\?\(/+\d\+[dwmy]\)\?\]'
+syntax match markdownTag '\:\S\+\:$'
 
 " something encosed in square brackets
 " could not be preceded by a backslash
@@ -352,6 +353,7 @@ for s:level in range(1, 16)
     \ . 'keepend '
     \ . 'contains='
     \ .   'markdownTimestamp,'
+    \ .   'markdownTag,'
     \ .   'markdownTableInListItemAtLevel' . (s:level) . ','
     \ .   'markdownCodeBlockInListItemAtLevel' . (s:level) . ','
     \ .   'markdownFencedCodeBlockInListItemAtLevel' . (s:level) . ','
@@ -914,6 +916,7 @@ hi def link markdownXmlEmptyElement         NonText
 hi def link markdownXmlEntities             Special
 
 hi def link markdownTimestamp               Underlined
+hi def link markdownTag                     Underlined
 
 " }}}
 
