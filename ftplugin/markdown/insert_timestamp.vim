@@ -12,7 +12,7 @@ let s:path = expand('<sfile>:p:h')
 " insert a timestamp with Day, Month and Year
 function! InsertTimestamp(desc, mode)
         python import sys
-        python sys.argv = [] 
+        python sys.argv = []
 	execute ':pyfile ' . s:path . '/insert_timestamp.py'
 endfunc
 
@@ -22,7 +22,7 @@ command! -nargs=+ InsertTimestamp call InsertTimestamp(<f-args>)
 " insert a timestamp with Day, Month, Year, Hour and Minute
 function! InsertExactTimestamp(desc, time, mode)
         python import sys
-        python sys.argv = ["exact"] 
+        python sys.argv = ["exact"]
 	execute ':pyfile ' . s:path . '/insert_timestamp.py'
 endfunc
 

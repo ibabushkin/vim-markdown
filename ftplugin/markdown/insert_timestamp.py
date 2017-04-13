@@ -37,7 +37,7 @@ def get_timestamp(inp, time=''):
     # get the date
     target = today + datetime.timedelta(
         days=(repeat-1)*7 + delta1)
-    ts = target.strftime("[%d.%m.%Y]")
+    ts = target.strftime("[%Y-%m-%d]")
 
     # handle optional time
     if time:
